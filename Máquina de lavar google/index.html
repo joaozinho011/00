@@ -69,9 +69,21 @@
 
   gtag('config', 'AW-10973267383');
 </script>
-<!-- Event snippet for Clique no botão whatsapp (1) conversion page -->
+<!-- Event snippet for Clique no botão whatsapp (1) conversion page
+In your html page, add the snippet and call gtag_report_conversion when someone clicks on the chosen link or button. -->
 <script>
-  gtag('event', 'conversion', {'send_to': 'AW-10973267383/fMrSCJqv4-8YELeLu_Ao'});
+function gtag_report_conversion(url) {
+  var callback = function () {
+    if (typeof(url) != 'undefined') {
+      window.location = url;
+    }
+  };
+  gtag('event', 'conversion', {
+      'send_to': 'AW-10973267383/fMrSCJqv4-8YELeLu_Ao',
+      'event_callback': callback
+  });
+  return false;
+}
 </script>
 </head>
   </body>
